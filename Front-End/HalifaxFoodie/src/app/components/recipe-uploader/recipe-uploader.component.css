@@ -1,0 +1,7 @@
+h3, h2{
+    margin-left: 30px;
+}
+mat-form-field{
+    width: 60%;
+    margin: auto;
+}

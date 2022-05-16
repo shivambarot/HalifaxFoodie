@@ -1,0 +1,13 @@
+.sidenav-container{
+    height: 70%;
+    background-color: beige;
+}
+.spacer {
+    flex: 1 1 auto;
+  }
+.menu-button{
+    height: 100%;
+}
+.sidenav{
+    width: 30%;
+}

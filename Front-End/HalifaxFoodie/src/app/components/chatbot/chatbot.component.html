@@ -1,0 +1,27 @@
+<div style="height: 100%;">
+    <div style="height: 69%; overflow-y: auto;" name="dvMsg" #dvMsg [scrollTop]="dvMsg.scrollHeight">
+        <div>
+            <p *ngFor='let m of chatMessages' class="{{m.Owner}}" >
+                <span *ngIf="!m.Message.includes('/main/connect')" innerHTML="{{m.Owner}}: {{m.Message}}"></span>
+                <button mat-button class="menu-button" *ngIf="m.Message.includes('/main/connect')" [routerLink]="'/main/connect/QVPa0JeYkcMDFgShsEXs'">
+                    Chat Now
+                  </button>   
+            </p>
+        </div>
+    </div>
+    
+    <form [formGroup]="chatBotFormGroup" (submit)="send()" style="height: 20%;">
+        <mat-form-field appearance="fill" style="
+    width: 90%;
+    margin-left: 5%;
+">
+            <input matInput formControlName="message" placeholder="Type a message...">
+        </mat-form-field>
+
+        <div>
+            <button mat-button color="accent" type="submit">Send</button>
+            <button mat-button color="warn" (click)="reset()">Reset</button>
+        </div>
+    </form>
+
+</div>

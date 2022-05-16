@@ -1,0 +1,25 @@
+{
+  "name": "group-10-csci-5410-summer-2021-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.cs.dal.ca/dudhatra/group-10-csci-5410-summer-2021-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-comprehend": "^3.22.0",
+    "aws-sdk": "^2.949.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "googleapis": "^82.0.0",
+    "sendmail": "^1.6.1",
+    "uuid4": "^2.0.2",
+    "uuidv4": "^6.2.11"
+  }
+}

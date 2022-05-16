@@ -1,0 +1,20 @@
+<table *ngIf="foodList.length > 0">
+    <thead>
+        <th>
+            Dish
+        </th>
+        <th>
+            Recipe
+        </th>
+        <th>Similarity Index</th>
+        <th>Category</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let feedback of foodList">
+            <td>{{feedback.food}}</td>
+            <td>{{feedback.recipe}}</td>
+            <td>{{feedback.score}}</td>
+            <td>{{feedback.category}}</td>
+        </tr>
+    </tbody>
+</table>

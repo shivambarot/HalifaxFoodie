@@ -1,0 +1,24 @@
+<h2>Add Restaurant</h2>
+
+<form [formGroup]="AddRestFormGroup" (submit)="Add()">
+    <ng-template matStepLabel>Security Question</ng-template>
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" placeholder="First Pet" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Service Option</mat-label>
+        <input matInput formControlName="serviceOpt" placeholder="Best Friend" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Location in</mat-label>
+        <input matInput formControlName="location" placeholder="Best Friend" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address" placeholder="Best Friend" required>
+    </mat-form-field>
+    <div>
+        <button mat-button type="submit">Add</button>
+    </div>
+</form>

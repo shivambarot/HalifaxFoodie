@@ -1,0 +1,57 @@
+<div style="background-color: rgb(46,1,0); width: 100%;display: inline-flex;">
+  <div style="height: 100%; ">
+    <!-- img source google -->
+    <img style="height: 80px;" src="https://i.pinimg.com/originals/01/48/66/0148662247327a7d268ce7d02b8662cf.png">
+  </div>
+  <div style="height: 100%; padding-top: 25px;">
+    <label style="color: white; font-weight: bolder; font-size: xx-large;">Halifax Foodie</label>
+  </div>
+  <div style="height: 100%; padding-top: 25px; padding-left: 50%;">
+
+    <label style="color: white; font-weight: bolder; font-size: large; ">Hello, {{this.dataservice.userData.lastName +',
+      '+ this.dataservice.userData.firstName}}</label>
+  </div>
+</div>
+<mat-toolbar>
+  <button mat-button class="menu-button" [routerLink]="'/main/restraunt'">
+    Restaurant
+  </button>
+  <button mat-button class="menu-button" [routerLink]="'/main/feedback-analysis'"
+    *ngIf="dataservice?.userData.role == 'R' || dataservice?.userData.role == 'A' ">
+    Feedback Analysis
+  </button>
+
+  <button mat-button class="menu-button" [routerLink]="'/main/report'"
+    *ngIf="dataservice?.userData.role == 'A' ">
+    Data Analysis Report
+  </button>
+  <button mat-button class="menu-button" [routerLink]="'/main/recipe-uploader'"
+  *ngIf="dataservice?.userData.role == 'R' ">
+  Recipe Uploader
+</button>
+<button mat-button class="menu-button" [routerLink]="'/main/recipe-checker'"
+*ngIf="dataservice?.userData.role == 'R' ">
+Recipe Checker
+</button>
+
+  <span class="spacer"></span>
+
+  <button mat-icon-button (click)="openChat = !openChat">
+    <mat-icon> chat_bubble_outline</mat-icon>
+  </button>
+  <button mat-icon-button [routerLink]="'/main/connect/QVPa0JeYkcMDFgShsEXs'">
+    <mat-icon>contact_support</mat-icon>
+  </button>
+  <button mat-icon-button (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav class="sidenav" [opened]="openChat" mode="side" position="end">
+    <app-chatbot></app-chatbot>
+  </mat-sidenav>
+  <div style="height: 100%;">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>

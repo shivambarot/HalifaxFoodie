@@ -1,0 +1,38 @@
+<h2>Sign in</h2>
+<mat-horizontal-stepper labelPosition="bottom" #stepper> 
+  <mat-step [stepControl]="CreadentialFormGroup">
+    <form [formGroup]="CreadentialFormGroup" (submit)="callFireBase(stepper)">
+      <ng-template matStepLabel>Enter your credentials</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" formControlName="email" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Password" type="password" formControlName="password" required>
+      </mat-form-field>
+      <div>
+        <button mat-button type="submit">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="SecurityFormGroup">
+    <form [formGroup]="SecurityFormGroup" (submit)="validateSecQ()"> 
+      <ng-template matStepLabel>Security Question</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>First Pet</mat-label>
+        <input matInput formControlName="Q1" placeholder="First Pet" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Best Friend</mat-label>
+        <input matInput formControlName="Q2" placeholder="Best Friend" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button type="submit">Sign in</button>
+      </div>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>
+
+<button mat-raised-button style="margin-left: 12%;" color="accent" [routerLink]="'/register'">Register</button>

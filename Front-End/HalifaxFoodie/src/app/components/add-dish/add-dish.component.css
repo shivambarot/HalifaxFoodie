@@ -1,0 +1,13 @@
+form, .restList{
+    width: 70%;
+    margin: auto;
+}
+
+mat-form-field{
+    width: 100%;
+    margin: auto;
+}
+
+.restList{
+    margin-left: 15%;
+}

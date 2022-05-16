@@ -1,0 +1,20 @@
+
+<h2>{{restName}}</h2>
+
+<form (submit)="submit()" [formGroup]="FeedbackForm" style="padding-left: 20%;">
+    <mat-form-field appearance="fill">
+        <mat-label>Dish</mat-label>
+        <input matInput formControlName="food" 
+        placeholder="Dish Name">
+        <mat-error *ngIf="FeedbackForm?.controls['food']?.errors?.required">Please seleect a dish</mat-error>
+      </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Recipe</mat-label>
+        <textarea matInput formControlName="recipe" placeholder="Feedback" rows="9"></textarea>
+    <mat-error *ngIf="FeedbackForm?.controls['recipe']?.errors?.required">Please enter the recipe</mat-error>
+
+      </mat-form-field>
+      <br>
+      <button mat-button type="submit">Submit</button>
+    </form>

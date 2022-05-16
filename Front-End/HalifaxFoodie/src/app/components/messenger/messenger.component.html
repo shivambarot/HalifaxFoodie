@@ -1,0 +1,69 @@
+<ng-container *ngIf="chat$ | async as chat" style="height: 100%;">
+  <!-- <ng-container *ngIf=" auth.user$ | async as user"> -->
+  <div style="height: 100%;">
+    <div class="top">
+      <mat-form-field appearance="fill" style="float: left;" *ngIf="dataservice.userData.role == 'A'">
+        <mat-label>Receiver</mat-label>
+        <mat-select [(ngModel)]="selectedRecvName" (selectionChange)="recvChange()">
+          <mat-option value="">Please Select</mat-option>
+          <mat-option *ngFor="let recvName of recvNameList" [value]="recvName" >{{recvName}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="OrderForm?.controls['food']?.errors?.required">Please a receiver</mat-error>
+      </mat-form-field>
+
+    </div>
+
+
+    <div style="height: 69%; overflow-y: auto;" name="dvMsg" #dvMsg [scrollTop]="dvMsg.scrollHeight">
+
+      <div class="msg animated zoomInUp" *ngFor="let msg of messages; trackBy: trackByCreated">
+
+        <div class="Representative" *ngIf="msg && msg.senderUid != curUid">
+          <span class="tag is-dark">{{ msg?.senderName }}</span>
+          <span class="spacer"></span>
+
+          <button mat-icon-button class="delete-button" *ngIf="msg.senderUid === curUid"
+            (click)="cs.deleteMessage(chat, msg)">
+            <mat-icon> delete</mat-icon>
+          </button>
+          <br>
+          <p *ngIf="msg && msg.senderUid">{{ msg.content }}</p>
+        </div>
+
+        <div class="Me" *ngIf="msg && msg.senderUid == curUid">
+          <span class="tag is-dark">{{ msg?.senderName }}</span>
+          <span class="spacer"></span>
+
+          <button mat-icon-button class="delete-button" *ngIf="msg.senderUid === curUid"
+            (click)="cs.deleteMessage(chat, msg)">
+            <mat-icon> delete</mat-icon>
+          </button>
+          <br>
+          <p *ngIf="msg && msg.senderUid">{{ msg.content }}</p>
+        </div>
+
+
+      </div>
+
+
+
+    </div>
+    <form #f="ngForm" (submit)="submit(chat.id)" style="height: 20%; margin-top: 15px;">
+      <mat-form-field appearance="fill" style="width: 41.5%;margin-left: 41.5%;margin-right: auto;">
+        <input matInput name="message" placeholder="Type a message..." [(ngModel)]="newMsg" maxlength="100">
+      </mat-form-field>
+
+      <div>
+        <button mat-button color="accent" type="submit" [disabled]="!newMsg">Send</button>
+        <button mat-button color="warn">Reset</button>
+      </div>
+    </form>
+
+    <!-- <div class="form">
+        <input class="input" [(ngModel)]="newMsg" maxlength="100" (keydown.enter)="submit(chat.id)">
+  
+        <button (click)="submit(chat.id)" class="button is-info" [disabled]="!newMsg">Send</button>
+      </div> -->
+  </div>
+  <!-- </ng-container> -->
+</ng-container>

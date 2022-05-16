@@ -1,0 +1,50 @@
+<h2>Registeration</h2>
+<mat-horizontal-stepper labelPosition="bottom" #stepper> 
+  <mat-step [stepControl]="CreadentialFormGroup">
+    <form [formGroup]="CreadentialFormGroup" (submit)="callFireBase(stepper)">
+      <ng-template matStepLabel>Fill out your credentials</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" formControlName="email" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Password" type="password" formControlName="password" required>
+      </mat-form-field>
+      <div>
+        <button mat-button type="submit">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="DetailsFormGroup">
+    <form [formGroup]="DetailsFormGroup" (submit)="saveDetails()"> 
+      <ng-template matStepLabel>Fill out your Personal Details</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" placeholder="First Name" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" placeholder="Last Name" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address" placeholder="Address" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>First Pet</mat-label>
+        <input matInput formControlName="Q1" placeholder="Address" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Best Friend</mat-label>
+        <input matInput formControlName="Q2" placeholder="Address" required>
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button type="submit">Save</button>
+      </div>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>
+<button mat-raised-button style="margin-left: 12%;" color="accent" [routerLink]="'/signin'">Aleardy registered? Signin</button>

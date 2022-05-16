@@ -1,0 +1,34 @@
+<h2>Feedback Analysis</h2>
+
+<form (submit)="Search()" [formGroup]="FeedbackForm" style="padding-left: 20%;"
+    *ngIf="dataservice?.userData.role == 'A' ">
+    <mat-form-field class="restList" appearance="fill">
+        <mat-label>Restaurant</mat-label>
+        <mat-select formControlName="rest">
+            <mat-option *ngFor="let rest of restList" [value]="rest.code">
+                {{rest.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <br>
+    <button mat-button type="submit">Search</button>
+</form>
+<table *ngIf="feedbackList.length > 0">
+    <thead>
+        <th>
+            Feedback
+        </th>
+        <th>
+            Rating
+        </th>
+        <th>Sentiment</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let feedback of feedbackList">
+            <td>{{feedback.feedback}}</td>
+            <td>{{feedback.rating}}</td>
+            <td>{{feedback.sentiment}}</td>
+        </tr>
+    </tbody>
+</table>

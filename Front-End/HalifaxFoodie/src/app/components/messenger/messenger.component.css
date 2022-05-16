@@ -1,0 +1,40 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+
+  .Me{
+    background-color: aquamarine;
+    width: 40%;
+    margin: auto;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  .Representative{
+      background-color: brown;
+      width: 40%;
+      margin: auto;
+      border-radius: 10px;
+      padding: 10px;
+      margin-top: 10px;
+  }
+
+  .delete-button{
+    float: right;
+  }
+
+  .delete-button:hover{
+      color: red;
+  }
+
+  .tag{
+    font-size: large;
+    font-weight: bold;
+  }
+
+  .top{
+    float: left;
+    width: 20%;
+    min-height: 10%;
+  }
